@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Monero Wallets — Full Guide & Comparison</title>
+  <meta name="description" content="Comprehensive neutral guide to Monero wallets. Compare features, security, and usability. Informational only." />
+  <link rel="icon" href="/favicon.png" />
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17533341912"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17533341912');
+</script>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VL0J5QEYCL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VL0J5QEYCL');
+  
+</script>
+  <style>
+    .hero-art {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: none;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .hero-art img.hero-img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+
+    :root{
+      --bg:#f5f6f7;
+      --panel:#ffffff;
+      --ink:#1e1e1e;
+      --muted:#5b6672;
+      --line:#e6e6e6;
+      --brand:#ff6600;
+      --brand-d:#cf5100;
+      --brand-l:#ffefe4;
+      --accent:#3c7bd6;
+      --wrap:1160px;
+      --radius:14px;
+      --shadow-sm:0 4px 14px rgba(0,0,0,.06);
+      --shadow-md:0 10px 26px rgba(0,0,0,.08);
+      --shadow-lg:0 18px 42px rgba(0,0,0,.10);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;line-height:1.6}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{color:var(--brand-d)}
+    .wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+
+    /* Header */
+    .header{position:sticky;top:0;background:var(--panel);border-bottom:1px solid var(--line);z-index:40;transition:box-shadow .2s ease}
+    .header.scrolled{box-shadow:var(--shadow-sm)}
+    .nav{display:flex;align-items:center;justify-content:space-between;min-height:68px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:18px}
+    .logo{width:34px;height:34px;border-radius:50%;background:var(--brand);display:grid;place-items:center;color:#fff;font-weight:900}
+    .menu{display:flex;gap:8px;flex-wrap:wrap}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:#fff;color:#2b2b2b;font-weight:600;box-shadow:0 1px 0 rgba(0,0,0,.03);position:relative;overflow:hidden}
+    .pill:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,transparent,rgba(0,0,0,.02));opacity:0;transition:opacity .2s}
+    .pill:hover{border-color:#dadada}
+    .pill:hover:after{opacity:1}
+    .pill.active{border-color:var(--brand);box-shadow:0 0 0 2px var(--brand-l) inset}
+
+    /* Burger menu */
+    .burger{display:none;appearance:none;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px;line-height:0}
+    .burger svg{width:20px;height:20px}
+    @media(max-width:880px){
+      .menu{display:none}
+      .burger{display:inline-grid}
+      .drawer{display:grid;grid-template-rows:0fr;transition:grid-template-rows .25s ease}
+      .drawer.open{grid-template-rows:1fr}
+      .drawer-inner{overflow:hidden}
+      .drawer .pill{display:block;margin:8px 0}
+    }
+
+    /* Buttons */
+    .btn{border:1px solid var(--brand);background:var(--brand);color:#fff;padding:12px 18px;border-radius:10px;font-weight:700;transition:transform .12s ease, background .2s ease, box-shadow .2s ease;box-shadow:0 6px 18px rgba(255,102,0,.18)}
+    .btn:hover{background:var(--brand-d);transform:translateY(-1px)}
+    .btn.ghost{background:#fff;color:var(--ink);border-color:var(--line);box-shadow:none}
+
+    /* Hero */
+    .hero{background:var(--panel);border-bottom:1px solid var(--line)}
+    .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;padding:48px 20px}
+    .eyebrow{display:inline-block;color:#7b8896;font-size:12px;text-transform:uppercase;letter-spacing:.24px;margin-bottom:6px}
+    .hero h1{font-size:clamp(28px,6vw,46px);line-height:1.15;margin:.3rem 0 .6rem}
+    .hero p{color:var(--muted);font-size:clamp(15px,2.4vw,16px)}
+    .hero-art{min-height:240px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,#fff,#fafafa);box-shadow:var(--shadow-sm);position:relative;overflow:hidden}
+    .hero-art:before{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(var(--brand),transparent 60%);opacity:.15}
+
+    section{padding:44px 0;border-bottom:1px solid var(--line)}
+    .kicker{color:#6d7682;font-weight:700;letter-spacing:.2px;text-transform:uppercase;font-size:11px;margin-bottom:8px}
+    h2{font-size:clamp(22px,3.6vw,34px);margin:0 0 14px}
+    .lead{color:var(--muted)}
+
+    /* Wallets */
+    .wallets{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .wallet{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow-sm);position:relative;overflow:hidden;transition:transform .16s ease, box-shadow .2s ease, border-color .2s ease}
+    .wallet:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:#dcdcdc}
+    .wallet .bar{height:6px;border-radius:6px;background:linear-gradient(90deg,var(--brand),#ff944d)}
+    .wallet .head{display:flex;align-items:center;gap:12px;margin:12px 0 6px}
+    .wallet .icon{width:36px;height:36px;border-radius:10px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;color:var(--brand);font-weight:900}
+    .wallet h3{margin:.1rem 0 .25rem;font-size:18px}
+    .wallet p{margin:0;color:var(--muted)}
+    .tag{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:999px;background:#eef4ff;color:#3a6dd8;border:1px solid #d9e5ff;font-size:12px;font-weight:600}
+
+    /* Table */
+    .table-wrap{background:var(--panel);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-sm);padding:8px;overflow:auto}
+    .table{width:100%;min-width:720px;border-collapse:collapse}
+    .table th,.table td{border:1px solid var(--line);padding:12px 10px;text-align:left;background:#fff}
+    .table th{background:#fafafa;font-size:14px}
+
+    /* Steps */
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .step{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--shadow-sm);position:relative;display:flex;flex-direction:column;gap:6px}
+    .badge{position:relative;display:inline-block;margin-bottom:8px;background:var(--brand);color:#fff;border-radius:999px;padding:4px 10px;font-weight:700;font-size:12px}
+
+    /* FAQ */
+    details{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px;box-shadow:var(--shadow-sm)}
+    details+details{margin-top:10px}
+    summary{cursor:pointer;font-weight:700}
+
+    /* Animations */
+    [data-reveal]{opacity:0;transform:translateY(14px)}
+    .reveal{animation:fadeUp .48s cubic-bezier(.2,.8,.2,1) forwards}
+    @keyframes fadeUp{to{opacity:1;transform:none}}
+
+    /* Responsive */
+    @media(max-width:1020px){.hero .wrap{grid-template-columns:1fr}}
+    @media(max-width:920px){.wallets{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr}}
+    @media(max-width:560px){.wallets{grid-template-columns:1fr}.pill{padding:9px 12px}.hero .wrap{gap:20px;padding:28px 20px}}
+  </style>
+</head>
+<body>
+  <header class="header" id="top">
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">M</div>
+        Monero Wallets — Guide
+      </div>
+      <nav class="menu" aria-label="Primary navigation">
+        <a class="pill" href="#wallets">Wallets</a>
+        <a class="pill" href="#compare">Compare</a>
+        <a class="pill" href="#setup">Setup</a>
+        <a class="pill" href="#restore">Restore</a>
+        <a class="pill" href="#faq">FAQ</a>
+      </nav>
+      <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 6h18M3 12h18M3 18h18" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap">
+      <div data-reveal>
+        <span class="eyebrow">Informational only</span>
+        <h1>Monero wallets — full comparison</h1>
+        <p>Neutral guide to popular Monero wallets. Learn features, security basics, and how to set up or restore an XMR wallet. No sales or exchanges on this site.</p>
+        <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn" href="explore-wallets.html">Explore wallets</a>
+          <a class="btn ghost" href="#compare">Compare features</a>
+        </div>
+      </div>
+      <div class="hero-art" data-reveal>
+        <img src="/navigating-xmrwallet.png" alt="Navigating XMRWallet" class="hero-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- Wallets -->
+  <section id="wallets">
+    <div class="wrap">
+      <div class="kicker" data-reveal>Reviews</div>
+      <h2 data-reveal>Popular Monero wallets — neutral overviews</h2>
+      <div class="wallets">
+        <article class="wallet" data-reveal>
+          <div class="bar" aria-hidden="true"></div>
+          <div class="head"><div class="icon">X</div><h3>XMRWallet</h3></div>
+          <p>Web-based, non-custodial wallet. Ideal for quick online access without downloads. Lightweight and simple to use.</p>
+          <div style="margin-top:12px"><span class="tag" aria-label="access">Web access</span></div>
+        </article>
+        <article class="wallet" data-reveal>
+          <div class="bar" aria-hidden="true" style="background:linear-gradient(90deg,#ffa04d,#ff6600)"></div>
+          <div class="head"><div class="icon">M</div><h3>MyMonero</h3></div>
+          <p>Cross-platform (web, desktop, mobile). Beginner-friendly, open-source components, straightforward recovery.</p>
+          <div style="margin-top:12px"><span class="tag">Cross-platform</span></div>
+        </article>
+        <article class="wallet" data-reveal>
+          <div class="bar" aria-hidden="true" style="background:linear-gradient(90deg,#ffb37a,#ff6600)"></div>
+          <div class="head"><div class="icon">C</div><h3>Cake Wallet</h3></div>
+          <p>iOS and Android. Non-custodial, multi-asset support, exchange integrations, optional hardware wallet pairing.</p>
+          <div style="margin-top:12px"><span class="tag">Mobile</span></div>
+        </article>
+        <article class="wallet" data-reveal>
+          <div class="bar" aria-hidden="true" style="background:linear-gradient(90deg,#ffc38c,#ff7e26)"></div>
+          <div class="head"><div class="icon">R</div><h3>Monerujo</h3></div>
+          <p>Android-exclusive wallet, fully open-source, advanced controls, supports remote nodes for privacy.</p>
+          <div style="margin-top:12px"><span class="tag">Android</span></div>
+        </article>
+        <article class="wallet" data-reveal>
+          <div class="bar" aria-hidden="true" style="background:linear-gradient(90deg,#ffd1a6,#ff8f3b)"></div>
+          <div class="head"><div class="icon">L</div><h3>Ledger Nano</h3></div>
+          <p>Hardware wallet ideal for cold storage. Offline key security; integrates with Monero apps. Non-custodial.</p>
+          <div style="margin-top:12px"><span class="tag">Hardware</span></div>
+        </article>
+        <article class="wallet" data-reveal>
+          <div class="bar" aria-hidden="true" style="background:linear-gradient(90deg,#ffe0bf,#ffa04d)"></div>
+          <div class="head"><div class="icon">G</div><h3>Monero GUI</h3></div>
+          <p>Official desktop wallet from the Monero project. Advanced and feature-rich; best for experienced users or full node use.</p>
+          <div style="margin-top:12px"><span class="tag">Desktop</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison Table -->
+  <section id="compare">
+    <div class="wrap">
+      <div class="kicker" data-reveal>Comparison</div>
+      <h2 data-reveal>Compare wallet features</h2>
+      <div class="table-wrap" data-reveal>
+        <table class="table" aria-label="Wallet comparison">
+          <thead>
+            <tr>
+              <th>Wallet</th><th>Access</th><th>Custody</th><th>Open-source</th><th>Extra features</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>XMRWallet</strong></td><td>Web</td><td>Non-custodial</td><td>Partial</td><td>Quick online access</td></tr>
+            <tr><td>MyMonero</td><td>Web/Desktop/Mobile</td><td>Non-custodial</td><td>Yes</td><td>Cross-device</td></tr>
+            <tr><td>Cake Wallet</td><td>Mobile</td><td>Non-custodial</td><td>Partial</td><td>Built-in exchange</td></tr>
+            <tr><td>Monerujo</td><td>Android</td><td>Non-custodial</td><td>Yes</td><td>Remote nodes</td></tr>
+            <tr><td>Ledger Nano</td><td>Hardware</td><td>Non-custodial</td><td>No</td><td>Offline security</td></tr>
+            <tr><td>Monero GUI</td><td>Desktop</td><td>Non-custodial</td><td>Yes</td><td>Full node support</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Setup -->
+  <section id="setup">
+    <div class="wrap">
+      <div class="kicker" data-reveal>Setup</div>
+      <h2 data-reveal>How to set up a Monero wallet</h2>
+      <div class="steps">
+        <div class="step" data-reveal>
+          <span class="badge">Step 1</span>
+          Choose a wallet type: web, mobile, desktop, or hardware. Consider convenience vs. security.
+        </div>
+        <div class="step" data-reveal>
+          <span class="badge">Step 2</span>
+          Create the wallet and write down the seed phrase on paper. Store it offline in two places.
+        </div>
+        <div class="step" data-reveal>
+          <span class="badge">Step 3</span>
+          Enable device security (PIN/biometrics). Bookmark official URLs.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Restore -->
+  <section id="restore">
+    <div class="wrap">
+      <div class="kicker" data-reveal>Restore</div>
+      <h2 data-reveal>Restore existing wallet</h2>
+      <div class="step" style="margin-top:10px" data-reveal>
+        <ol style="margin:0;padding-left:18px">
+          <li>Open your chosen wallet interface (web/app/hardware companion).</li>
+          <li>Select <em>Restore / Import</em>.</li>
+          <li>Enter your recovery phrase accurately (word order & count).</li>
+          <li>Verify addresses and enable app/device security.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background:var(--panel);border-top:1px solid var(--line)">
+    <div class="wrap" style="padding:18px 0;display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:space-between">
+      <div style="color:var(--muted)">Disclaimer: Informational resource only. © <span id="y"></span></div>
+      <nav style="display:flex;gap:10px">
+        <a class="pill" href="/terms.html">Terms</a>
+        <a class="pill" href="/privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // Sticky header shadow on scroll
+    const header = document.querySelector('.header');
+    const onScroll = ()=> header.classList.toggle('scrolled', window.scrollY>2);
+    onScroll();
+    window.addEventListener('scroll', onScroll, {passive:true});
+
+    // Reveal-on-scroll
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('reveal'); io.unobserve(e.target); } })
+    },{threshold:.16});
+    document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
+
+    // Active pills
+    const pills = document.querySelectorAll('.pill');
+    function setActive(){ pills.forEach(p=>p.classList.remove('active')); const t = document.querySelector(`a[href='${location.hash}']`); if(t) t.classList.add('active'); }
+    window.addEventListener('hashchange', setActive); setActive();
+
+    // Mobile drawer (guarded, в разметке drawer может отсутствовать)
+    const burger = document.getElementById('burger');
+    const drawer = document.getElementById('drawer');
+    if (burger && drawer){
+      burger.addEventListener('click', ()=>{
+        const open = drawer.classList.toggle('open');
+        burger.setAttribute('aria-expanded', String(open));
+        drawer.setAttribute('aria-hidden', String(!open));
+      });
+    }
+
+    // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+   
+  
+  </script>
+</body>
+</html>
